@@ -86,13 +86,13 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 
 - [x] `pip install jupyter matplotlib` ile araçları kur.
 - [x] `notebooks/01_veri_tanima.ipynb` dosyasını oluştur.
-- [ ] Şu sorulara cevap bul:
+- [x] Şu sorulara cevap bul:
   - Kaç başvuru var, krediyi ödemeyenlerin oranı ne? (yaklaşık %8 bekliyoruz)
   - Hangi kolonlarda çok eksik değer var?
   - `DAYS_EMPLOYED` dağılımında garip bir değer görüyor musun? (`365243` çıkmalı)
   - Her tablo diğerine hangi kolonla bağlanıyor?
   - `bureau` tablosunda hiç kaydı olmayan kaç kişi var?
-- [ ] Bulduklarını not al ve 3-4 grafik kaydet.
+- [x] Bulduklarını not al ve 3-4 grafik kaydet.
 
 **Bitti sayılır:** Veriyi bir arkadaşına iki dakikada anlatabiliyorsun.
 
