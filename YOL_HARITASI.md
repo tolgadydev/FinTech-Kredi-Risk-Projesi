@@ -47,9 +47,9 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 
 **Neden:** Kod yazmadan önce araçların ve verinin hazır olması gerekir.
 
-- [ ] VS Code'u kur, Python eklentisini ekle.
-- [ ] Docker Desktop'ın açıldığını kontrol et.
-- [ ] Bu klasörde sanal ortamı etkinleştir:
+- [x] VS Code'u kur, Python eklentisini ekle.
+- [x] Docker Desktop'ın açıldığını kontrol et.
+- [x] Bu klasörde sanal ortamı etkinleştir:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
