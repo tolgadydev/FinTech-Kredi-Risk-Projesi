@@ -100,7 +100,7 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 
 **Neden:** Bozuk bir dosya sessizce modele girerse sonuçların yanlış olur. Bu kod, veriyi kullanmadan önce kontrol eder.
 
-- [ ] Teknik plandaki Görev 1'i aç. Git deposu, `.venv`, `.gitignore`, `pyproject.toml` ve `.env.example` hazır, onları atla.
+- [xd] Teknik plandaki Görev 1'i aç. Git deposu, `.venv`, `.gitignore`, `pyproject.toml` ve `.env.example` hazır, onları atla.
 - [ ] `packages/credit_features` paketini, `ml/ingest.py` dosyasını ve `tests/conftest.py` dosyasını oluştur.
 - [ ] Paketi kur: `pip install -e packages/credit_features`
 - [ ] Testleri yaz, başarısız olduğunu gör, sonra kodu yaz.
