@@ -101,11 +101,11 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 **Neden:** Bozuk bir dosya sessizce modele girerse sonuçların yanlış olur. Bu kod, veriyi kullanmadan önce kontrol eder.
 
 - [xd] Teknik plandaki Görev 1'i aç. Git deposu, `.venv`, `.gitignore`, `pyproject.toml` ve `.env.example` hazır, onları atla.
-- [ ] `packages/credit_features` paketini, `ml/ingest.py` dosyasını ve `tests/conftest.py` dosyasını oluştur.
-- [ ] Paketi kur: `pip install -e packages/credit_features`
-- [ ] Testleri yaz, başarısız olduğunu gör, sonra kodu yaz.
-- [ ] CSV dosyalarını Parquet formatına çevirmek için proje klasöründe şunu çalıştır: `python -c "from pathlib import Path; from ml.ingest import convert_raw; convert_raw(Path('data/raw'), Path('data/parquet'))"`
-- [ ] Parquet dosyalarının `data/parquet/` altında oluştuğunu gör.
+- [x] `packages/credit_features` paketini, `ml/ingest.py` dosyasını ve `tests/conftest.py` dosyasını oluştur.
+- [x] Paketi kur: `pip install -e packages/credit_features`
+- [x] Testleri yaz, başarısız olduğunu gör, sonra kodu yaz.
+- [x] CSV dosyalarını Parquet formatına çevirmek için proje klasöründe şunu çalıştır: `python -c "from pathlib import Path; from ml.ingest import convert_raw; convert_raw(Path('data/raw'), Path('data/parquet'))"`
+- [x] Parquet dosyalarının `data/parquet/` altında oluştuğunu gör.
 
 **Bitti sayılır:** `python -m pytest tests/features/test_schemas.py -q` geçiyor ve 8 Parquet dosyası oluştu.
 
