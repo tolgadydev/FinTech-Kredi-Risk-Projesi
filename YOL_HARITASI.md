@@ -24,7 +24,24 @@ Kaydetmek için:
 ```powershell
 git add .
 git commit -m "Yaptığın işi kısaca yaz"
+git push
 ```
+
+Teknik plandaki `Co-Authored-By` satırını kendi commit'lerine ekleme, o satır yalnızca Claude'un yaptığı commit'ler içindi.
+
+**Paket kurulumu:** Her aşamaya başlarken o aşamanın paketlerini kur. Bu listenin tamamının Python 3.13 ile birlikte kurulabildiği 2026 sonunda kontrol edildi.
+
+| Aşama | Komut |
+|---|---|
+| 2-3 | Hazır: `pandas`, `pandera`, `pyarrow`, `pytest`, `pytest-mock`, `ruff`, `pyyaml` |
+| 4 | `pip install scikit-learn lightgbm catboost optbinning` |
+| 5 | `pip install imbalanced-learn optuna` |
+| 6 | `pip install mlflow` |
+| 7 | `pip install fairlearn evidently` |
+| 8 | `pip install fastapi uvicorn httpx shap` |
+| 9-11 | `pip install django djangorestframework djangorestframework-simplejwt drf-spectacular pytest-django dj-database-url celery redis "psycopg[binary]"` |
+| 12 | `pip install faker sentence-transformers` |
+| 13 | `pip install streamlit` |
 
 **Bana sorarken** şunları yaz: hangi aşamadasın, ne yapmaya çalıştın, hata mesajının tamamı ne. Sadece anlamadığın bir şey de sorabilirsin. Örnek: "Aşama 6'da kalibrasyonun ne işe yaradığını anlamadım."
 
@@ -55,9 +72,9 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 .\.venv\Scripts\Activate.ps1
 ```
 
-- [ ] Kaggle'da `home-credit-default-risk` yarışma sayfasını aç, kuralları kabul et, tüm veriyi indir.
-- [ ] Dosyaları `data/raw/` klasörüne çıkar. `application_train.csv` doğrudan bu klasörde olmalı.
-- [ ] `data/` klasörünü asla GitHub'a yükleme. Kaggle verisi paylaşılamaz, `.gitignore` bunu engeller.
+- [x] Kaggle'da `home-credit-default-risk` yarışma sayfasını aç, kuralları kabul et, tüm veriyi indir.
+- [x] Dosyaları `data/raw/` klasörüne çıkar. `application_train.csv` doğrudan bu klasörde olmalı.
+- [x] `data/` klasörünü asla GitHub'a yükleme. Kaggle verisi paylaşılamaz, `.gitignore` bunu engeller.
 
 **Bitti sayılır:** `python --version` çalışıyor ve `data/raw/application_train.csv` var.
 
@@ -87,7 +104,7 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 - [ ] `packages/credit_features` paketini, `ml/ingest.py` dosyasını ve `tests/conftest.py` dosyasını oluştur.
 - [ ] Paketi kur: `pip install -e packages/credit_features`
 - [ ] Testleri yaz, başarısız olduğunu gör, sonra kodu yaz.
-- [ ] CSV dosyalarını Parquet formatına çeviren komutu gerçek veriyle çalıştır.
+- [ ] CSV dosyalarını Parquet formatına çevirmek için proje klasöründe şunu çalıştır: `python -c "from pathlib import Path; from ml.ingest import convert_raw; convert_raw(Path('data/raw'), Path('data/parquet'))"`
 - [ ] Parquet dosyalarının `data/parquet/` altında oluştuğunu gör.
 
 **Bitti sayılır:** `python -m pytest tests/features/test_schemas.py -q` geçiyor ve 8 Parquet dosyası oluştu.
@@ -122,6 +139,7 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 - [ ] Basit bir temel model kur (lojistik regresyon). Diğer modelleri bununla kıyaslayacaksın.
 - [ ] Üç deneyi çalıştır: G1, G1+G2, G1+G2+G3.
 - [ ] Sonuçları bir de banka kaydı olmayan kişiler için ayrı hesapla.
+- [ ] G1+G2+G3 modeli için `results/kaggle_submission.csv` üret ve Kaggle'a kendin "late submission" olarak yükle. Bu yalnızca ek bir kontroldür.
 
 **Puanların anlamı:**
 
@@ -250,11 +268,15 @@ Sonra tarayıcıda `http://127.0.0.1:8000/docs` adresini aç.
 - [ ] Ekranda yüzde, karar, üç neden ve model etiketi görünsün.
 - [ ] `docker-compose.yml` dosyasını yaz. FastAPI dışarıya port açmamalı.
 - [ ] GitHub Actions ile testlerin otomatik çalışmasını sağla.
+- [ ] `.env.example` dosyasını `.env` adıyla kopyala ve örnek şifreleri değiştir.
+- [ ] Dockerfile'larda Python 3.13 kullan. `models/`, `config/` ve `data/` klasörlerini Compose'da ilgili servislere bağla (volume), çünkü `models/` ve `data/` GitHub'da yok.
 - [ ] Sistemi çalıştır:
 
 ```powershell
 docker compose up --build -d
 ```
+
+- [ ] Sistem açılınca veritabanını hazırla: `migrate`, ardından gerçek ve sahte veri için `load_features`, son olarak `seed_demo`. Bunu yapmazsan herkes "bilinmeyen kişi" görünür.
 
 **Bitti sayılır:** `http://localhost:8501` açılıyor ve bir başvuru baştan sona skorlanıyor.
 
