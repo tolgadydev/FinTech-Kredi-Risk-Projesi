@@ -84,8 +84,8 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 
 **Neden:** Tanımadığın veriyle model kurarsan hatalarını fark edemezsin. Bu aşamada sunumda kullanacağın grafikler de çıkar.
 
-- [ ] `pip install jupyter matplotlib` ile araçları kur.
-- [ ] `notebooks/01_veri_tanima.ipynb` dosyasını oluştur.
+- [x] `pip install jupyter matplotlib` ile araçları kur.
+- [x] `notebooks/01_veri_tanima.ipynb` dosyasını oluştur.
 - [ ] Şu sorulara cevap bul:
   - Kaç başvuru var, krediyi ödemeyenlerin oranı ne? (yaklaşık %8 bekliyoruz)
   - Hangi kolonlarda çok eksik değer var?
