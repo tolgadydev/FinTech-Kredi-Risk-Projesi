@@ -1,0 +1,12 @@
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib"
+pythonpath = [".", "services/api", "services/scoring"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+extend-exclude = ["services/api/credit/migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
