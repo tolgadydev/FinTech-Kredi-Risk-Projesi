@@ -121,9 +121,9 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 | G2 | Ödeme alışkanlığı: gecikme, eksik ödeme | Ana model |
 | G3 | Kredi skorları ve banka geçmişi | Yalnızca karşılaştırma |
 
-- [ ] `build_g1` fonksiyonunu yaz (Görev 2).
-- [ ] `build_g2` ve `build_g3` fonksiyonlarını yaz (Görev 3).
-- [ ] Şu üç kurala dikkat et:
+- [x] `build_g1` fonksiyonunu yaz (Görev 2).
+- [x] `build_g2` ve `build_g3` fonksiyonlarını yaz (Görev 3).
+- [x] Şu üç kurala dikkat et:
   - Gelir 0 ise oran sonsuz değil, eksik değer olmalı.
   - `DAYS_EMPLOYED = 365243` eksik değerdir.
   - Cinsiyet, yaş, medeni durum, çocuk sayısı ve aile büyüklüğü modele girmez.
