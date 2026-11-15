@@ -1,7 +1,7 @@
 {
   "model_version": "g1g2-catboost-20261115194243",
   "n_dev": 246008,
-  "note": "OOF tahminleri kullan\u0131ld\u0131. Kalibrasyon ayn\u0131 tahminlerle \u00f6\u011frenildi\u011fi i\u00e7in oranlar hafif iyimser olabilir.",
+  "note": "OOF tahminleri kullanıldı. Kalibrasyon aynı tahminlerle öğrenildiği için oranlar hafif iyimser olabilir.",
   "thresholds": {
     "approve_below": 0.125,
     "reject_from": 0.25
@@ -129,7 +129,7 @@
         "count": 2.0,
         "default_rate": 0.0,
         "reject_rate": 0.0,
-        "tpr": NaN,
+        "tpr": null,
         "fpr": 0.0,
         "approval_rate": 0.5
       }

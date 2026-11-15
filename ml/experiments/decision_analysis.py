@@ -21,6 +21,11 @@ MARGINS = (0.10, 0.15, 0.20)
 LGDS = (0.35, 0.45, 0.60)
 
 
+def _records(frame: pd.DataFrame) -> list[dict]:
+    table = frame.reset_index().astype(object)
+    return table.where(table.notna(), None).to_dict(orient="records")
+
+
 def approved_default_rate(y: np.ndarray, bands: np.ndarray) -> float | None:
     approved = bands == "approve"
     return float(y[approved].mean()) if approved.any() else None
@@ -90,15 +95,17 @@ def main() -> None:
         "approved_default_rate": approved_default_rate(y, bands),
         "sensitivity": sensitivity(probs, y),
         "fairness": {
-            "gender": gender.reset_index().to_dict(orient="records"),
-            "age": age.reset_index().to_dict(orient="records"),
+            "gender": _records(gender),
+            "age": _records(age),
         },
         "drift": {
             "score_psi": score_psi,
-            "features": drift.reset_index(names="feature").to_dict(orient="records"),
+            "features": _records(drift.rename_axis("feature")),
         },
     }
-    OUTPUT.write_text(json.dumps(output, indent=2, default=float), encoding="utf-8")
+    OUTPUT.write_text(
+        json.dumps(output, indent=2, default=float, ensure_ascii=False), encoding="utf-8"
+    )
 
     print(f"\nKarar dağılımı: {output['band_shares']}")
     print(f"Onaylananların ödememe oranı: {output['approved_default_rate']:.4f}")
