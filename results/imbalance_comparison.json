@@ -1,0 +1,87 @@
+{
+  "sample_frac": 1.0,
+  "n_dev": 246008,
+  "group": "G1G2",
+  "actual_rate": 0.08072908198107379,
+  "winner": "catboost/none",
+  "results": [
+    {
+      "id": "lightgbm/none",
+      "model": "lightgbm",
+      "arm": "none",
+      "roc_auc": 0.6962941529917374,
+      "gini": 0.3925883059834747,
+      "ks": 0.2858722805931561,
+      "pr_auc": 0.17776785422091376,
+      "brier": 0.07095280631360691,
+      "brier_calibrated": 0.07092340496770101,
+      "cv_std_roc_auc": 0.003210770639426096,
+      "mean_prob": 0.07991011370407268
+    },
+    {
+      "id": "lightgbm/class_weight",
+      "model": "lightgbm",
+      "arm": "class_weight",
+      "roc_auc": 0.6932960998314946,
+      "gini": 0.3865921996629893,
+      "ks": 0.2835175944899401,
+      "pr_auc": 0.17807211507546183,
+      "brier": 0.19433732775066478,
+      "brier_calibrated": 0.07093887096439586,
+      "cv_std_roc_auc": 0.0020963671255372737,
+      "mean_prob": 0.40851134477642576
+    },
+    {
+      "id": "lightgbm/smotenc",
+      "model": "lightgbm",
+      "arm": "smotenc",
+      "roc_auc": 0.6769233248468803,
+      "gini": 0.3538466496937607,
+      "ks": 0.25858830676721234,
+      "pr_auc": 0.15363536300122307,
+      "brier": 0.07450646551373719,
+      "brier_calibrated": 0.07183253984446378,
+      "cv_std_roc_auc": 0.0041080057961113735,
+      "mean_prob": 0.10955360688415121
+    },
+    {
+      "id": "catboost/none",
+      "model": "catboost",
+      "arm": "none",
+      "roc_auc": 0.7017002418507278,
+      "gini": 0.40340048370145554,
+      "ks": 0.29314858305323177,
+      "pr_auc": 0.18445900898330214,
+      "brier": 0.07063660621138958,
+      "brier_calibrated": 0.0706465985890849,
+      "cv_std_roc_auc": 0.0024047304133708878,
+      "mean_prob": 0.0802758406384959
+    },
+    {
+      "id": "catboost/class_weight",
+      "model": "catboost",
+      "arm": "class_weight",
+      "roc_auc": 0.7012473761267586,
+      "gini": 0.40249475225351716,
+      "ks": 0.2952736839215934,
+      "pr_auc": 0.18423904070816702,
+      "brier": 0.20993369604102588,
+      "brier_calibrated": 0.07065757548155312,
+      "cv_std_roc_auc": 0.0025515466378005797,
+      "mean_prob": 0.43710635313806584
+    },
+    {
+      "id": "catboost/smotenc",
+      "model": "catboost",
+      "arm": "smotenc",
+      "roc_auc": 0.6733451804173691,
+      "gini": 0.34669036083473825,
+      "ks": 0.25441525865094433,
+      "pr_auc": 0.15191830160228978,
+      "brier": 0.0753792766447405,
+      "brier_calibrated": 0.0719320605787231,
+      "cv_std_roc_auc": 0.003909941096290421,
+      "mean_prob": 0.11729211263589834
+    }
+  ]
+}
