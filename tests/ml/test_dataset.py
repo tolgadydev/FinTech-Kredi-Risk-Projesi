@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from ml.dataset import build_dataset, thin_file_mask
+from ml.dataset import build_dataset, build_features, thin_file_mask
 
 
 @pytest.fixture
@@ -76,3 +76,13 @@ def test_unknown_group_is_rejected(parquet_dir):
 def test_thin_file_mask_marks_people_without_bureau():
     mask = thin_file_mask(pd.Index([1, 2, 3, 4]), pd.DataFrame({"SK_ID_CURR": [1, 2, 2]}))
     assert list(mask) == [False, False, True, True]
+
+
+def test_features_for_applications_without_target(parquet_dir, app_df):
+    app_df.drop(columns="TARGET").to_parquet(
+        parquet_dir / "application_test.parquet", index=False
+    )
+    X = build_features("G1G2G3", parquet_dir, "application_test")
+    assert list(X.index) == list(app_df["SK_ID_CURR"])
+    assert "EXT_SOURCE_2" in X.columns
+    assert "TARGET" not in X.columns

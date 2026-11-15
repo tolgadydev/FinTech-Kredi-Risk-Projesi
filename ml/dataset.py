@@ -12,11 +12,13 @@ def _read(data_dir: Path, name: str) -> pd.DataFrame:
     return pd.read_parquet(Path(data_dir) / f"{name}.parquet")
 
 
-def build_dataset(group: str, data_dir: Path) -> tuple[pd.DataFrame, pd.Series]:
+def build_features(
+    group: str, data_dir: Path, source: str = "application_train"
+) -> pd.DataFrame:
     if group not in GROUPS:
         raise ValueError(f"Bilinmeyen grup: {group}. Seçenekler: {GROUPS}")
 
-    app = _read(data_dir, "application_train").set_index("SK_ID_CURR")
+    app = _read(data_dir, source).set_index("SK_ID_CURR")
     X = build_g1(app)
 
     if "G2" in group:
@@ -36,8 +38,15 @@ def build_dataset(group: str, data_dir: Path) -> tuple[pd.DataFrame, pd.Series]:
                 _read(data_dir, "bureau_balance"),
             )
         )
-    return X, app["TARGET"]
+    return X
 
+
+def build_dataset(group: str, data_dir: Path) -> tuple[pd.DataFrame, pd.Series]:
+    X = build_features(group, data_dir)
+    labels = pd.read_parquet(
+        Path(data_dir) / "application_train.parquet", columns=["SK_ID_CURR", "TARGET"]
+    )
+    return X, labels.set_index("SK_ID_CURR")["TARGET"]
 
 def thin_file_mask(index: pd.Index, bureau: pd.DataFrame) -> pd.Series:
     return pd.Series(~index.isin(bureau["SK_ID_CURR"]), index=index, name="thin_file")
