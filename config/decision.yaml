@@ -1,0 +1,4 @@
+# Karar eşikleri bu iki varsayımdan hesaplanır.
+# Bunlar gerçek kurum verisi değil, raporda duyarlılık analizi yapılır.
+margin: 0.15
+lgd: 0.45
