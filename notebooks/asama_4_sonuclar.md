@@ -1,0 +1,264 @@
+{
+  "sample_frac": 1.0,
+  "n_dev": 246008,
+  "criterion_1_gain": 0.01260555335083402,
+  "criterion_1_passed": true,
+  "results": {
+    "G1/logreg_woe": {
+      "cv_mean": {
+        "roc_auc": 0.6596461241043852,
+        "gini": 0.3192922482087705,
+        "ks": 0.2341033203084152,
+        "pr_auc": 0.14972268980823378,
+        "brier": 0.07215223127353829
+      },
+      "cv_std_roc_auc": 0.0014218565256837873,
+      "oof_all": {
+        "roc_auc": 0.6596539881439386,
+        "gini": 0.3193079762878772,
+        "ks": 0.23124476087017742,
+        "pr_auc": 0.14940045826842271,
+        "brier": 0.07215223097081727
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.6490814085995347,
+        "gini": 0.29816281719906934,
+        "ks": 0.2170627974179981,
+        "pr_auc": 0.17777385008466323,
+        "brier": 0.08847417692689007
+      },
+      "thin_file_count": 35244
+    },
+    "G1/lightgbm": {
+      "cv_mean": {
+        "roc_auc": 0.6674439051552492,
+        "gini": 0.33488781031049847,
+        "ks": 0.24787207319198915,
+        "pr_auc": 0.15378664165353356,
+        "brier": 0.07199658662818975
+      },
+      "cv_std_roc_auc": 0.0035951497430468105,
+      "oof_all": {
+        "roc_auc": 0.6674168799768783,
+        "gini": 0.3348337599537565,
+        "ks": 0.2458924358298385,
+        "pr_auc": 0.1533732403130309,
+        "brier": 0.07199658720835454
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.6603833467329713,
+        "gini": 0.32076669346594255,
+        "ks": 0.23801407674866204,
+        "pr_auc": 0.18247762362898692,
+        "brier": 0.08813355809388379
+      },
+      "thin_file_count": 35244
+    },
+    "G1/catboost": {
+      "cv_mean": {
+        "roc_auc": 0.6744846673966914,
+        "gini": 0.348969334793383,
+        "ks": 0.2548006517801114,
+        "pr_auc": 0.16131106704445494,
+        "brier": 0.07166259765207345
+      },
+      "cv_std_roc_auc": 0.0020373747289906905,
+      "oof_all": {
+        "roc_auc": 0.6744598263556376,
+        "gini": 0.34891965271127523,
+        "ks": 0.2527418230744133,
+        "pr_auc": 0.16076105711943312,
+        "brier": 0.0716625976570697
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.6652708625671873,
+        "gini": 0.3305417251343745,
+        "ks": 0.2385728072674687,
+        "pr_auc": 0.19089857509516525,
+        "brier": 0.08774934165617854
+      },
+      "thin_file_count": 35244
+    },
+    "G1G2/logreg_woe": {
+      "cv_mean": {
+        "roc_auc": 0.6891095757793418,
+        "gini": 0.3782191515586836,
+        "ks": 0.27996617236682675,
+        "pr_auc": 0.17261241971081784,
+        "brier": 0.07117356752733713
+      },
+      "cv_std_roc_auc": 0.0011798073290166466,
+      "oof_all": {
+        "roc_auc": 0.6890970877362685,
+        "gini": 0.3781941754725371,
+        "ks": 0.2778411533510633,
+        "pr_auc": 0.17210398136318236,
+        "brier": 0.07117356699013251
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.6886252663565788,
+        "gini": 0.37725053271315767,
+        "ks": 0.27313771339933435,
+        "pr_auc": 0.20527743404877458,
+        "brier": 0.08694902908594514
+      },
+      "thin_file_count": 35244
+    },
+    "G1G2/lightgbm": {
+      "cv_mean": {
+        "roc_auc": 0.6963257137505695,
+        "gini": 0.39265142750113896,
+        "ks": 0.28792872402052183,
+        "pr_auc": 0.1783471586163161,
+        "brier": 0.07095280595203825
+      },
+      "cv_std_roc_auc": 0.003210770639426096,
+      "oof_all": {
+        "roc_auc": 0.6962941529917374,
+        "gini": 0.3925883059834747,
+        "ks": 0.2858722805931561,
+        "pr_auc": 0.17776785422091376,
+        "brier": 0.07095280631360691
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.7021478025244279,
+        "gini": 0.40429560504885576,
+        "ks": 0.29134613140580334,
+        "pr_auc": 0.21523479393265277,
+        "brier": 0.08625981505926907
+      },
+      "thin_file_count": 35244
+    },
+    "G1G2/catboost": {
+      "cv_mean": {
+        "roc_auc": 0.7017151291301759,
+        "gini": 0.40343025826035195,
+        "ks": 0.2952834212269905,
+        "pr_auc": 0.18491906321301652,
+        "brier": 0.07063660591101392
+      },
+      "cv_std_roc_auc": 0.0024047304133708878,
+      "oof_all": {
+        "roc_auc": 0.7017002418507278,
+        "gini": 0.40340048370145554,
+        "ks": 0.29314858305323177,
+        "pr_auc": 0.18445900898330214,
+        "brier": 0.07063660621138958
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.7044314803246136,
+        "gini": 0.4088629606492271,
+        "ks": 0.2965692422141669,
+        "pr_auc": 0.22007479635170302,
+        "brier": 0.08606793350210644
+      },
+      "thin_file_count": 35244
+    },
+    "G1G2G3/logreg_woe": {
+      "cv_mean": {
+        "roc_auc": 0.7542314232219116,
+        "gini": 0.508462846443823,
+        "ks": 0.3838512481439098,
+        "pr_auc": 0.2307672981571633,
+        "brier": 0.06835412311910986
+      },
+      "cv_std_roc_auc": 0.0019950475206993133,
+      "oof_all": {
+        "roc_auc": 0.7542203491280145,
+        "gini": 0.508440698256029,
+        "ks": 0.38145011436423354,
+        "pr_auc": 0.23044305185294636,
+        "brier": 0.06835412280817461
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.7334412561527994,
+        "gini": 0.46688251230559885,
+        "ks": 0.3477762411183977,
+        "pr_auc": 0.2460121821217771,
+        "brier": 0.08439318717679281
+      },
+      "thin_file_count": 35244
+    },
+    "G1G2G3/lightgbm": {
+      "cv_mean": {
+        "roc_auc": 0.7606390451506757,
+        "gini": 0.5212780903013513,
+        "ks": 0.39244774697118484,
+        "pr_auc": 0.24372701725535895,
+        "brier": 0.06781695445265845
+      },
+      "cv_std_roc_auc": 0.0021494419095784154,
+      "oof_all": {
+        "roc_auc": 0.7606010196675205,
+        "gini": 0.521202039335041,
+        "ks": 0.3905693044797495,
+        "pr_auc": 0.24322736228765895,
+        "brier": 0.06781695557697562
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.7463069529637529,
+        "gini": 0.49261390592750587,
+        "ks": 0.3625921846280979,
+        "pr_auc": 0.26345542281211,
+        "brier": 0.08316331721678563
+      },
+      "thin_file_count": 35244
+    },
+    "G1G2G3/catboost": {
+      "cv_mean": {
+        "roc_auc": 0.7640456621018801,
+        "gini": 0.52809132420376,
+        "ks": 0.3994380251581054,
+        "pr_auc": 0.24868424235503367,
+        "brier": 0.06753138607789896
+      },
+      "cv_std_roc_auc": 0.001835789785887849,
+      "oof_all": {
+        "roc_auc": 0.7640488727351075,
+        "gini": 0.5280977454702149,
+        "ks": 0.3971731921636717,
+        "pr_auc": 0.24829723931102218,
+        "brier": 0.06753138706194066
+      },
+      "oof_thin_file": {
+        "roc_auc": 0.746680501999706,
+        "gini": 0.4933610039994121,
+        "ks": 0.36244586435205034,
+        "pr_auc": 0.26344684610864716,
+        "brier": 0.08313100689067182
+      },
+      "thin_file_count": 35244
+    }
+  }
+}
+
+
+
+
+Bu doğru dosya, projenin ilk gerçek sonucu bu ve tezi destekliyor. Önce kısa özet, sonra ayrıntılar.
+
+1. başarı ölçütü geçti. G1G2'de en iyi boosting modeli (CatBoost) lojistik regresyonu 0,0126 farkla geçti, hedef 0,01'di (criterion_1_passed: true).
+
+Farklar gerçek, şans değil. cv_std_roc_auc değerleri 0,001-0,004 arasında. G1'den G1G2'ye artış ise yaklaşık 0,027, yani dalgalanmanın 10 katı. Kesin istatistiksel kanıtı Aşama 6'da güven aralığıyla yapacaksın, ama işaret çok net.
+
+En önemli bulgu: Banka kaydı olmayan 35.244 kişi
+
+CatBoost sonuçları (roc_auc):
+
+Grup	Herkes	Kaydı olmayanlar
+G1 (başvuru)	0,674	0,665
+G1G2 (+ ödeme alışkanlığı)	0,702	0,704
+G1G2G3 (+ kredi skorları)	0,764	0,747
+
+Bu tablodan üç sonuç çıkıyor:
+
+Ödeme alışkanlığı, kaydı olmayanlarda daha çok işe yarıyor. Herkeste artış +0,027, kaydı olmayanlarda +0,039.
+G1G2 modeli kaydı olmayanlarda en az herkes kadar iyi çalışıyor. 0,704 ile 0,702. Yani ana modelimiz bu gruba karşı dezavantajlı değil.
+Açığın yaklaşık yarısı kapanıyor. Kaydı olmayanlarda G1'den G1G2G3'e toplam fark 0,082. Ödeme alışkanlığı bunun 0,039'unu, yani yaklaşık %48'ini kapatıyor. Herkeste bu oran yaklaşık %30.
+
+Sunumdaki ana cümlen bu olabilir: “Kredi skoru olmadan, yalnızca ödeme alışkanlığıyla, banka kaydı olmayan kişilerde kredi skorlarının sağladığı farkın yaklaşık yarısı kapatılabiliyor.” Bu sonucu geliştirme verisindeki OOF tahminlerinden çıkardık. Kesinleşmesi için Aşama 6'da sınav kâğıdıyla doğrulanması gerekiyor, raporda bunu belirt.
+
+Dikkat edilecek iki nokta:
+
+PR-AUC’yi gruplar arasında karşılaştırma. Kaydı olmayanlarda daha yüksek görünüyor, ama bunun nedeni o grupta ödememenin daha yaygın olması (%10'a karşı %8). PR-AUC bu orandan etkilenir.
+Brier puanı hâlâ zayıf. G1G2 CatBoost’ta 0,0706, herkese ortalama yüzdeyi vermek 0,074 alıyor. Model kişileri iyi sıralıyor ama verdiği yüzdeler henüz isabetli değil. Aşama 6'daki kalibrasyon bunun için.
