@@ -14,3 +14,4 @@ catboost_info/
 *.sqlite3
 
 .superpowers/
+results/*_sample.json
