@@ -134,12 +134,12 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 
 **Neden:** Projenin ana sorusu burada cevaplanır: Banka bilgisi olmadan da iyi tahmin yapılabiliyor mu?
 
-- [ ] Verinin %20'sini ayır ve **son aşamaya kadar kullanma**. Bu senin sınav kâğıdın.
-- [ ] Puanları hesaplayan `evaluate` fonksiyonunu yaz.
-- [ ] Basit bir temel model kur (lojistik regresyon). Diğer modelleri bununla kıyaslayacaksın.
-- [ ] Üç deneyi çalıştır: G1, G1+G2, G1+G2+G3.
-- [ ] Sonuçları bir de banka kaydı olmayan kişiler için ayrı hesapla.
-- [ ] G1+G2+G3 modeli için `results/kaggle_submission.csv` üret ve Kaggle'a kendin "late submission" olarak yükle. Bu yalnızca ek bir kontroldür.
+- [x] Verinin %20'sini ayır ve **son aşamaya kadar kullanma**. Bu senin sınav kâğıdın.
+- [x] Puanları hesaplayan `evaluate` fonksiyonunu yaz.
+- [x] Basit bir temel model kur (lojistik regresyon). Diğer modelleri bununla kıyaslayacaksın.
+- [x] Üç deneyi çalıştır: G1, G1+G2, G1+G2+G3.
+- [x] Sonuçları bir de banka kaydı olmayan kişiler için ayrı hesapla.
+- [x] G1+G2+G3 modeli için `results/kaggle_submission.csv` üret ve Kaggle'a kendin "late submission" olarak yükle. Bu yalnızca ek bir kontroldür.
 
 **Puanların anlamı:**
 
