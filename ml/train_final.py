@@ -1,36 +1,25 @@
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 
 import joblib
 import numpy as np
 import pandas as pd
-from credit_features.frame import FeatureSpec, align_frame, fit_spec
+from credit_features.bundle import Bundle, load_bundle
+from credit_features.frame import align_frame, fit_spec
 from sklearn.isotonic import IsotonicRegression
 
 from ml.cv import cross_val_oof
 from ml.metrics import evaluate
 from ml.models import make_model
 
+__all__ = ["Bundle", "fit_calibrator", "load_bundle", "train_bundle"]
+
 
 def fit_calibrator(oof, y) -> IsotonicRegression:
     calibrator = IsotonicRegression(out_of_bounds="clip", y_min=0, y_max=1)
     return calibrator.fit(np.asarray(oof), np.asarray(y))
-
-
-@dataclass
-class Bundle:
-    model: object
-    calibrator: IsotonicRegression
-    spec: FeatureSpec
-    metadata: dict
-
-    def predict_raw(self, X: pd.DataFrame) -> np.ndarray:
-        return self.model.predict_proba(align_frame(X, self.spec))[:, 1]
-
-    def predict(self, X: pd.DataFrame) -> np.ndarray:
-        return self.calibrator.predict(self.predict_raw(X))
 
 
 def train_bundle(
@@ -68,15 +57,3 @@ def train_bundle(
     (out_dir / "features.json").write_text(json.dumps(asdict(spec), indent=2), encoding="utf-8")
     (out_dir / "metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
     return out_dir
-
-
-def load_bundle(path: Path) -> Bundle:
-    path = Path(path)
-    spec = FeatureSpec(**json.loads((path / "features.json").read_text(encoding="utf-8")))
-    metadata = json.loads((path / "metadata.json").read_text(encoding="utf-8"))
-    return Bundle(
-        model=joblib.load(path / "model.joblib"),
-        calibrator=joblib.load(path / "calibrator.joblib"),
-        spec=spec,
-        metadata=metadata,
-    )

@@ -160,10 +160,10 @@ Süren kısalırsa önce Aşama 12'yi (sahte veri ve Model B) kısalt. Modeli ve
 
 **Neden:** Batan müşteri az olduğu için model onları görmezden gelebilir.
 
-- [ ] LightGBM ve CatBoost için üç yöntemi dene: hiçbir şey yapma, batanlara daha çok ağırlık ver, SMOTE ile yapay örnek üret.
-- [ ] SMOTE'u **yalnızca eğitim verisine** uygula. Teste karışırsa sonuçlar sahte yükselir.
-- [ ] En iyi ayarları Optuna ile ara.
-- [ ] En iyi yöntemi seç ve nedenini not al.
+- [x] LightGBM ve CatBoost için üç yöntemi dene: hiçbir şey yapma, batanlara daha çok ağırlık ver, SMOTE ile yapay örnek üret.
+- [x] SMOTE'u **yalnızca eğitim verisine** uygula. Teste karışırsa sonuçlar sahte yükselir.
+- [x] En iyi ayarları Optuna ile ara.
+- [x] En iyi yöntemi seç ve nedenini not al.
 
 SMOTE yavaş çalışırsa üç yöntemi de aynı küçük veri parçasıyla karşılaştır.
 
@@ -173,11 +173,11 @@ SMOTE yavaş çalışırsa üç yöntemi de aynı küçük veri parçasıyla kar
 
 **Neden:** Program "%20 ihtimalle ödemez" diyorsa, gerçekten de o tür kişilerin yaklaşık %20'si ödememeli. Buna kalibrasyon denir.
 
-- [ ] Kalibrasyonu yap ve önceki/sonraki Brier puanını karşılaştır.
-- [ ] Final modeli eğit, `models/model_a/` altına kaydet.
-- [ ] MLflow'a `data_scope=real` etiketiyle kaydet.
-- [ ] **Şimdi** ayırdığın %20'lik sınavı yap. Bir kez yap, sonra modeli değiştirip tekrar deneme.
-- [ ] Banka kaydı olmayan kişilerdeki kazancı güven aralığıyla hesapla.
+- [x] Kalibrasyonu yap ve önceki/sonraki Brier puanını karşılaştır.
+- [x] Final modeli eğit, `models/model_a/` altına kaydet.
+- [x] MLflow'a `data_scope=real` etiketiyle kaydet.
+- [x] **Şimdi** ayırdığın %20'lik sınavı yap. Bir kez yap, sonra modeli değiştirip tekrar deneme.
+- [x] Banka kaydı olmayan kişilerdeki kazancı güven aralığıyla hesapla.
 
 **Bitti sayılır:** `results/final_evaluation.json` hazır. Sonuç beklediğin gibi çıkmasa bile raporda dürüstçe yaz.
 
@@ -185,10 +185,10 @@ SMOTE yavaş çalışırsa üç yöntemi de aynı küçük veri parçasıyla kar
 
 **Neden:** Bir yüzde tek başına karar değildir. Ayrıca sistemin bazı gruplara haksızlık edip etmediğini bilmen gerekir.
 
-- [ ] Karar kuralını yaz: %12,5 altı onay, %25 ve üstü ret, arası manuel inceleme.
-- [ ] Bu sınırları değiştirince sonucun nasıl değiştiğini tabloyla göster.
-- [ ] Fairlearn ile cinsiyet ve yaş gruplarında onay ve hata oranlarını karşılaştır.
-- [ ] Evidently ile tek seferlik veri kayması raporu üret.
+- [x] Karar kuralını yaz: %12,5 altı onay, %25 ve üstü ret, arası manuel inceleme.
+- [x] Bu sınırları değiştirince sonucun nasıl değiştiğini tabloyla göster.
+- [x] Fairlearn ile cinsiyet ve yaş gruplarında onay ve hata oranlarını karşılaştır.
+- [x] Evidently ile tek seferlik veri kayması raporu üret.
 
 **Bitti sayılır:** Sunumda "Sistem adil mi?" sorusuna sayılarla cevap verebiliyorsun.
 
