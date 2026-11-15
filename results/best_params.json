@@ -1,0 +1,38 @@
+{
+  "model": "catboost",
+  "arm": "none",
+  "group": "G1G2",
+  "search": {
+    "sample_frac": 0.1,
+    "n_trials": 15,
+    "pr_auc": 0.16818578542413598,
+    "params": {
+      "depth": 6,
+      "learning_rate": 0.025981338963106847,
+      "iterations": 400,
+      "l2_leaf_reg": 4.354073356911371
+    }
+  },
+  "validation": {
+    "sample_frac": 1.0,
+    "default": {
+      "roc_auc": 0.7017002418507278,
+      "gini": 0.40340048370145554,
+      "ks": 0.29314858305323177,
+      "pr_auc": 0.18445900898330214,
+      "brier": 0.07063660621138958,
+      "brier_calibrated": 0.0706465985890849
+    },
+    "tuned": {
+      "roc_auc": 0.6962779568989221,
+      "gini": 0.39255591379784427,
+      "ks": 0.2847414167421059,
+      "pr_auc": 0.18103135346061264,
+      "brier": 0.07083536730318796,
+      "brier_calibrated": 0.07083293548535725
+    }
+  },
+  "pr_auc_gain": -0.0034276555226895045,
+  "chosen": "default",
+  "params": {}
+}
