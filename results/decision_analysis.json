@@ -1,0 +1,292 @@
+{
+  "model_version": "g1g2-catboost-20261115194243",
+  "n_dev": 246008,
+  "note": "OOF tahminleri kullan\u0131ld\u0131. Kalibrasyon ayn\u0131 tahminlerle \u00f6\u011frenildi\u011fi i\u00e7in oranlar hafif iyimser olabilir.",
+  "thresholds": {
+    "approve_below": 0.125,
+    "reject_from": 0.25
+  },
+  "band_shares": {
+    "approve": 0.8315786478488505,
+    "manual_review": 0.14692205131540437,
+    "reject": 0.02149930083574518
+  },
+  "approved_default_rate": 0.058843944763534155,
+  "sensitivity": [
+    {
+      "margin": 0.1,
+      "lgd": 0.35,
+      "approve_below": 0.11111111111111113,
+      "reject_from": 0.22222222222222227,
+      "approve": 0.8091362882507885,
+      "manual_review": 0.15595834281811974,
+      "reject": 0.034905368931091675,
+      "approved_default_rate": 0.05719051111758618
+    },
+    {
+      "margin": 0.1,
+      "lgd": 0.45,
+      "approve_below": 0.09090909090909091,
+      "reject_from": 0.18181818181818182,
+      "approve": 0.7097167571786284,
+      "manual_review": 0.22551705635589087,
+      "reject": 0.0647661864654808,
+      "approved_default_rate": 0.0506999014868611
+    },
+    {
+      "margin": 0.1,
+      "lgd": 0.6,
+      "approve_below": 0.07142857142857144,
+      "reject_from": 0.14285714285714288,
+      "approve": 0.563835322428539,
+      "manual_review": 0.30751845468440053,
+      "reject": 0.1286462228870606,
+      "approved_default_rate": 0.04252097932347089
+    },
+    {
+      "margin": 0.15,
+      "lgd": 0.35,
+      "approve_below": 0.15,
+      "reject_from": 0.3,
+      "approve": 0.8713537771129394,
+      "manual_review": 0.114414978374687,
+      "reject": 0.014231244512373582,
+      "approved_default_rate": 0.06222709460720283
+    },
+    {
+      "margin": 0.15,
+      "lgd": 0.45,
+      "approve_below": 0.125,
+      "reject_from": 0.25,
+      "approve": 0.8315786478488505,
+      "manual_review": 0.14692205131540437,
+      "reject": 0.02149930083574518,
+      "approved_default_rate": 0.058843944763534155
+    },
+    {
+      "margin": 0.15,
+      "lgd": 0.6,
+      "approve_below": 0.09999999999999999,
+      "reject_from": 0.19999999999999998,
+      "approve": 0.7528698253715327,
+      "manual_review": 0.19382703001528406,
+      "reject": 0.05330314461318331,
+      "approved_default_rate": 0.05324169060320066
+    },
+    {
+      "margin": 0.2,
+      "lgd": 0.35,
+      "approve_below": 0.18181818181818182,
+      "reject_from": 0.36363636363636365,
+      "approve": 0.9352338135345192,
+      "manual_review": 0.06165246658645247,
+      "reject": 0.003113719879028324,
+      "approved_default_rate": 0.06913397805063566
+    },
+    {
+      "margin": 0.2,
+      "lgd": 0.45,
+      "approve_below": 0.15384615384615385,
+      "reject_from": 0.3076923076923077,
+      "approve": 0.8978935644369289,
+      "manual_review": 0.09340753146239146,
+      "reject": 0.008698904100679652,
+      "approved_default_rate": 0.06483799555432819
+    },
+    {
+      "margin": 0.2,
+      "lgd": 0.6,
+      "approve_below": 0.125,
+      "reject_from": 0.25,
+      "approve": 0.8315786478488505,
+      "manual_review": 0.14692205131540437,
+      "reject": 0.02149930083574518,
+      "approved_default_rate": 0.058843944763534155
+    }
+  ],
+  "fairness": {
+    "gender": [
+      {
+        "group": "F",
+        "count": 161887.0,
+        "default_rate": 0.07001179835317227,
+        "reject_rate": 0.016875969040132933,
+        "tpr": 0.07402505734956767,
+        "fpr": 0.012573645161504587,
+        "approval_rate": 0.853706597812054
+      },
+      {
+        "group": "M",
+        "count": 84119.0,
+        "default_rate": 0.1013564117500208,
+        "reject_rate": 0.030397413188459208,
+        "tpr": 0.09981233872859488,
+        "fpr": 0.02256822721680579,
+        "approval_rate": 0.7890012957833545
+      },
+      {
+        "group": "XNA",
+        "count": 2.0,
+        "default_rate": 0.0,
+        "reject_rate": 0.0,
+        "tpr": NaN,
+        "fpr": 0.0,
+        "approval_rate": 0.5
+      }
+    ],
+    "age": [
+      {
+        "group": "30-50",
+        "count": 127140.0,
+        "default_rate": 0.0866131823187038,
+        "reject_rate": 0.025161239578417493,
+        "tpr": 0.09208136578278242,
+        "fpr": 0.01881544502617801,
+        "approval_rate": 0.808927166902627
+      },
+      {
+        "group": "50+",
+        "count": 82587.0,
+        "default_rate": 0.056703839587344256,
+        "reject_rate": 0.007688861443084263,
+        "tpr": 0.03843689942344651,
+        "fpr": 0.005840521667693572,
+        "approval_rate": 0.913666799859542
+      },
+      {
+        "group": "<30",
+        "count": 36281.0,
+        "default_rate": 0.11479837931699788,
+        "reject_rate": 0.04010363551170034,
+        "tpr": 0.1190876350540216,
+        "fpr": 0.02986050566695728,
+        "approval_rate": 0.7240980127339379
+      }
+    ]
+  },
+  "drift": {
+    "score_psi": 0.004535355777390844,
+    "features": [
+      {
+        "feature": "NAME_CONTRACT_TYPE",
+        "psi": 0.21148670186328722,
+        "level": "izlenmeli"
+      },
+      {
+        "feature": "credit_income_ratio",
+        "psi": 0.11379789879108199,
+        "level": "izlenmeli"
+      },
+      {
+        "feature": "AMT_GOODS_PRICE",
+        "psi": 0.0818234847116398,
+        "level": "stabil"
+      },
+      {
+        "feature": "AMT_CREDIT",
+        "psi": 0.07989158513527005,
+        "level": "stabil"
+      },
+      {
+        "feature": "g2_inst_late_days_mean",
+        "psi": 0.05169407012984838,
+        "level": "stabil"
+      },
+      {
+        "feature": "g2_inst_late_share",
+        "psi": 0.050052462724793495,
+        "level": "stabil"
+      },
+      {
+        "feature": "g2_prev_count",
+        "psi": 0.048436313375342974,
+        "level": "stabil"
+      },
+      {
+        "feature": "g2_pos_dpd_max",
+        "psi": 0.04799240519561387,
+        "level": "stabil"
+      },
+      {
+        "feature": "g2_inst_underpay_ratio_mean",
+        "psi": 0.046245598073246415,
+        "level": "stabil"
+      },
+      {
+        "feature": "credit_goods_ratio",
+        "psi": 0.04452865456499613,
+        "level": "stabil"
+      },
+      {
+        "feature": "g2_prev_refused_share",
+        "psi": 0.03975427131228174,
+        "level": "stabil"
+      },
+      {
+        "feature": "AMT_ANNUITY",
+        "psi": 0.033076925279784085,
+        "level": "stabil"
+      },
+      {
+        "feature": "AMT_INCOME_TOTAL",
+        "psi": 0.02039391342286035,
+        "level": "stabil"
+      },
+      {
+        "feature": "g2_cc_utilization_mean",
+        "psi": 0.02025885618740661,
+        "level": "stabil"
+      },
+      {
+        "feature": "DAYS_EMPLOYED",
+        "psi": 0.00794972509387553,
+        "level": "stabil"
+      },
+      {
+        "feature": "employed_years",
+        "psi": 0.007895589579941025,
+        "level": "stabil"
+      },
+      {
+        "feature": "ORGANIZATION_TYPE",
+        "psi": 0.005785519947677002,
+        "level": "stabil"
+      },
+      {
+        "feature": "OCCUPATION_TYPE",
+        "psi": 0.002089012932051602,
+        "level": "stabil"
+      },
+      {
+        "feature": "REGION_RATING_CLIENT",
+        "psi": 0.00185815520230811,
+        "level": "stabil"
+      },
+      {
+        "feature": "g2_inst_late_share_last12",
+        "psi": 0.0018408329467463928,
+        "level": "stabil"
+      },
+      {
+        "feature": "annuity_income_ratio",
+        "psi": 0.0016464758804665253,
+        "level": "stabil"
+      },
+      {
+        "feature": "NAME_INCOME_TYPE",
+        "psi": 0.001000167327057654,
+        "level": "stabil"
+      },
+      {
+        "feature": "FLAG_OWN_REALTY",
+        "psi": 5.2160446444913145e-05,
+        "level": "stabil"
+      },
+      {
+        "feature": "FLAG_OWN_CAR",
+        "psi": 3.20143019681439e-05,
+        "level": "stabil"
+      }
+    ]
+  }
+}
