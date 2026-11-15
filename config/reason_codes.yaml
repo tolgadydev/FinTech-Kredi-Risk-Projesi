@@ -1,0 +1,26 @@
+# Her özellik için kararda gösterilecek Türkçe etiket.
+# Metin şu biçimde üretilir: "<etiket> riski artırdı" veya "<etiket> riski azalttı".
+AMT_INCOME_TOTAL: Toplam gelir
+AMT_CREDIT: İstenen kredi tutarı
+AMT_ANNUITY: Yıllık taksit tutarı
+AMT_GOODS_PRICE: Alınacak ürünün fiyatı
+DAYS_EMPLOYED: İşe başlama tarihi
+REGION_RATING_CLIENT: Yaşanan bölgenin puanı
+NAME_CONTRACT_TYPE: Kredi türü
+NAME_INCOME_TYPE: Gelir türü
+OCCUPATION_TYPE: Meslek
+ORGANIZATION_TYPE: Çalışılan kurum türü
+FLAG_OWN_CAR: Araç sahipliği
+FLAG_OWN_REALTY: Ev sahipliği
+credit_income_ratio: Kredinin gelire oranı
+annuity_income_ratio: Taksidin gelire oranı
+credit_goods_ratio: Kredinin ürün fiyatına oranı
+employed_years: Çalışma süresi
+g2_inst_late_days_mean: Taksitlerdeki ortalama gecikme
+g2_inst_late_share: Geç ödenen taksitlerin oranı
+g2_inst_late_share_last12: Son 12 ayda geç ödenen taksitlerin oranı
+g2_inst_underpay_ratio_mean: Eksik ödenen taksit tutarı
+g2_pos_dpd_max: Taksitli alımlardaki en uzun gecikme
+g2_cc_utilization_mean: Kredi kartı limit kullanımı
+g2_prev_count: Önceki başvuru sayısı
+g2_prev_refused_share: Reddedilen önceki başvuruların oranı
