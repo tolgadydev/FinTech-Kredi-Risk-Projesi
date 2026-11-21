@@ -1,6 +1,8 @@
-from app.schemas import ReasonOut, ScoreRequest, ScoreResponse
+from typing import cast
+from app.schemas import ApplicationIn, ReasonOut, ScoreRequest, ScoreResponse
 
 from credit.scoring_client import build_score_payload, parse_score_response
+from credit.serializers import ApplicationFormSerializer
 
 
 def test_django_request_matches_fastapi_schema():
@@ -24,3 +26,8 @@ def test_fastapi_response_is_accepted_by_django():
         ],
     )
     assert parse_score_response(response.model_dump())["model_version"] == "g1g2-catboost-test"
+
+
+def test_django_form_fields_match_fastapi():
+    form = cast(ApplicationFormSerializer, ApplicationFormSerializer())
+    assert set(form.fields) == set(ApplicationIn.model_fields)
