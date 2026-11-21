@@ -1,13 +1,24 @@
+import logging
 from typing import cast
+
+from django.db import transaction
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from credit.models import Application
+from credit import tasks
+from credit.models import Application, Batch, BatchItem
 from credit.scoring_client import ScoringUnavailable
-from credit.serializers import ApplicationCreateSerializer, application_data
+from credit.serializers import (
+    ApplicationCreateSerializer,
+    BatchCreateSerializer,
+    application_data,
+    batch_data,
+)
 from credit.services import AlreadyDecided, score_application
+
+logger = logging.getLogger(__name__)
 
 
 def _own_application(request, pk: int) -> Application:
@@ -42,6 +53,13 @@ def _score_and_respond(application: Application, success_status: int) -> Respons
     return Response(application_data(_fresh(application)), status=success_status)
 
 
+def _enqueue(batch_id: int) -> None:
+    try:
+        tasks.score_batch_task.delay(batch_id)
+    except Exception:  # noqa: BLE001
+        logger.exception("Toplu iş %s kuyruğa konamadı, sırada bekliyor", batch_id)
+
+
 class ApplicationCreateView(APIView):
     def post(self, request):
         serializer = ApplicationCreateSerializer(data=request.data)
@@ -64,3 +82,28 @@ class ApplicationDetailView(APIView):
 class ApplicationScoreView(APIView):
     def post(self, request, pk: int):
         return _score_and_respond(_own_application(request, pk), status.HTTP_200_OK)
+
+
+class BatchCreateView(APIView):
+    def post(self, request):
+        serializer = BatchCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        data = cast(dict, serializer.validated_data)
+        with transaction.atomic():
+            batch = Batch.objects.create(model_key=data["model"], created_by=request.user)
+            for entry in data["applications"]:
+                application = Application.objects.create(
+                    sk_id_curr=entry["sk_id_curr"],
+                    form=dict(entry.get("application", {})),
+                    model_key=data["model"],
+                    created_by=request.user,
+                )
+                BatchItem.objects.create(batch=batch, application=application)
+            transaction.on_commit(lambda: _enqueue(batch.pk))
+        return Response(batch_data(batch), status=status.HTTP_202_ACCEPTED)
+
+
+class BatchDetailView(APIView):
+    def get(self, request, pk: int):
+        batch = get_object_or_404(Batch, pk=pk, created_by=request.user)
+        return Response(batch_data(batch))

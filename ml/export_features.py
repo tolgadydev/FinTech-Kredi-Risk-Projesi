@@ -11,13 +11,14 @@ OUTPUT = Path("data/features/behaviour_real.jsonl")
 def write_jsonl(frame: pd.DataFrame, out: Path) -> int:
     out = Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)
+    ids = frame.index.astype(int).tolist()
     with out.open("w", encoding="utf-8") as file:
-        for sk_id_curr, row in frame.iterrows():
+        for sk_id_curr, row in zip(ids, frame.to_dict(orient="records"), strict=True):
             features = {
                 str(column): None if pd.isna(value) else float(value)
                 for column, value in row.items()
             }
-            file.write(json.dumps({"sk_id_curr": int(sk_id_curr), "features": features}) + "\n")
+            file.write(json.dumps({"sk_id_curr": sk_id_curr, "features": features}) + "\n")
     return len(frame)
 
 

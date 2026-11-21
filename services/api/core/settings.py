@@ -87,3 +87,5 @@ SCORING_URL = os.environ.get("SCORING_URL", "http://127.0.0.1:8001")
 DECISION_CONFIG = Path(
     os.environ.get("DECISION_CONFIG", BASE_DIR.parent.parent / "config" / "decision.yaml")
 )
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL", "redis://127.0.0.1:6379/0")
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
