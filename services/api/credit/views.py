@@ -55,7 +55,7 @@ def _score_and_respond(application: Application, success_status: int) -> Respons
 
 def _enqueue(batch_id: int) -> None:
     try:
-        tasks.score_batch_task.delay(batch_id)
+        tasks.score_batch_task.delay(batch_id)  # pyright: ignore[reportFunctionMemberAccess]
     except Exception:  # noqa: BLE001
         logger.exception("Toplu iş %s kuyruğa konamadı, sırada bekliyor", batch_id)
 
