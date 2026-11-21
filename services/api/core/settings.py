@@ -84,3 +84,6 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 SCORING_URL = os.environ.get("SCORING_URL", "http://127.0.0.1:8001")
+DECISION_CONFIG = Path(
+    os.environ.get("DECISION_CONFIG", BASE_DIR.parent.parent / "config" / "decision.yaml")
+)
