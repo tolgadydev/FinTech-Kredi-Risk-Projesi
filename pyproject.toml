@@ -10,3 +10,6 @@ extend-exclude = ["services/api/credit/migrations"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
+
+[tool.pyright]
+extraPaths = ["services/scoring", "services/api"]
