@@ -83,3 +83,4 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
+SCORING_URL = os.environ.get("SCORING_URL", "http://127.0.0.1:8001")
