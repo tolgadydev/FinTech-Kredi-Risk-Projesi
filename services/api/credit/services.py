@@ -3,7 +3,7 @@ from django.db import transaction
 from credit_decision import assign_band, load_thresholds
 
 from credit import scoring_client
-from credit.models import Application, BehaviourFeatures, Decision
+from credit.models import Application, Batch, BatchItem, BehaviourFeatures, Decision
 
 SCOPES_BY_MODEL = {"A": ["real"], "B": ["real", "synthetic"]}
 
@@ -52,3 +52,27 @@ def score_application(application: Application) -> Decision:
         locked.status = Application.Status.SCORED
         locked.save(update_fields=["status"])
     return decision
+
+def score_batch(batch_id: int) -> str:
+    batch = Batch.objects.get(pk=batch_id)
+    batch.status = Batch.Status.RUNNING
+    batch.save(update_fields=["status"])
+
+    down_reason = None
+    for item in BatchItem.objects.filter(batch=batch).select_related("application").order_by("pk"):
+        if down_reason is not None:
+            item.error = f"Denenmedi, skorlama servisi kapalı: {down_reason}"
+        else:
+            try:
+                score_application(item.application)
+                item.error = ""
+            except AlreadyDecided:
+                item.error = ""
+            except scoring_client.ScoringUnavailable as error:
+                down_reason = str(error)
+                item.error = f"Skorlama servisi kapalı: {error}"
+        item.save(update_fields=["error"])
+
+    batch.status = Batch.Status.PARTIAL if down_reason else Batch.Status.DONE
+    batch.save(update_fields=["status"])
+    return batch.status
