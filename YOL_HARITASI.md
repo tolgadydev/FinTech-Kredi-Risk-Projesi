@@ -215,10 +215,10 @@ Sonra tarayıcıda `http://127.0.0.1:8000/docs` adresini aç.
 
 **Neden:** Kullanıcı girişi ve kalıcı kayıtlar burada tutulur.
 
-- [ ] Django projesini `services/api` altında `core` adıyla kur.
-- [ ] `Application`, `BehaviourFeatures`, `Decision`, `Batch`, `BatchItem` modellerini yaz.
-- [ ] JWT ile giriş ekle.
-- [ ] Karar kayıtlarının değiştirilemez olduğunu test et.
+- [x] Django projesini `services/api` altında `core` adıyla kur.
+- [x] `Application`, `BehaviourFeatures`, `Decision`, `Batch`, `BatchItem` modellerini yaz.
+- [x] JWT ile giriş ekle.
+- [x] Karar kayıtlarının değiştirilemez olduğunu test et.
 
 `pyproject.toml` içine pytest için `DJANGO_SETTINGS_MODULE = "core.settings"` satırını bu aşamada ekle.
 
@@ -228,9 +228,9 @@ Sonra tarayıcıda `http://127.0.0.1:8000/docs` adresini aç.
 
 **Neden:** Sistemin ana akışı burada birleşir: başvuru gelir, skor alınır, karar kaydedilir.
 
-- [ ] `POST /api/v1/applications` uç noktasını yaz.
-- [ ] Skor servisini çağıran istemciyi yaz.
-- [ ] Şu durumları test et:
+- [x] `POST /api/v1/applications` uç noktasını yaz.
+- [x] Skor servisini çağıran istemciyi yaz.
+- [x] Şu durumları test et:
   - Skor servisi kapalı: `503` döner, başvuru `pending` kalır.
   - Karar verilmiş başvuru tekrar gönderilir: `409` döner.
   - Bilinmeyen kişi: skorlanır ve işaretlenir.
@@ -241,9 +241,9 @@ Sonra tarayıcıda `http://127.0.0.1:8000/docs` adresini aç.
 
 **Neden:** Çok sayıda başvuruyu tek tek beklemeden işlemek ve özetleri veritabanına yüklemek için Celery kullanılır.
 
-- [ ] Özet bilgileri veritabanına yükleyen görevi yaz.
-- [ ] Toplu skorlama görevini yaz.
-- [ ] İş ortasında skor servisi kapanırsa işlenenlerin korunduğunu test et.
+- [x] Özet bilgileri veritabanına yükleyen görevi yaz.
+- [x] Toplu skorlama görevini yaz.
+- [x] İş ortasında skor servisi kapanırsa işlenenlerin korunduğunu test et.
 
 **Bitti sayılır:** Toplu iş gönderip sonucunu `GET /api/v1/batches/{id}` ile görebiliyorsun.
 
