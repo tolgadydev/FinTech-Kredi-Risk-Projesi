@@ -196,10 +196,10 @@ SMOTE yavaş çalışırsa üç yöntemi de aynı küçük veri parçasıyla kar
 
 **Neden:** Model şu an yalnızca bilgisayarındaki bir dosya. FastAPI onu başka programların çağırabileceği bir servise çevirir.
 
-- [ ] `POST /score` ve `GET /health` uç noktalarını yaz.
-- [ ] SHAP ile "neden" bilgisini ekle, her başvuruda üç neden dönsün.
-- [ ] `config/reason_codes.yaml` içine Türkçe neden metinlerini yaz.
-- [ ] Eğitimdeki ve servisteki özelliklerin aynı çıktığını test et.
+- [x] `POST /score` ve `GET /health` uç noktalarını yaz.
+- [x] SHAP ile "neden" bilgisini ekle, her başvuruda üç neden dönsün.
+- [x] `config/reason_codes.yaml` içine Türkçe neden metinlerini yaz.
+- [x] Eğitimdeki ve servisteki özelliklerin aynı çıktığını test et.
 
 Çalıştırmak için `services/scoring` klasöründe:
 

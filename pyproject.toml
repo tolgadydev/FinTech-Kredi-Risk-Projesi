@@ -2,6 +2,7 @@
 addopts = "--import-mode=importlib"
 pythonpath = [".", "services/api", "services/scoring"]
 testpaths = ["tests"]
+DJANGO_SETTINGS_MODULE = "core.settings"
 
 [tool.ruff]
 line-length = 100
